@@ -1,0 +1,12 @@
+jQuery(document).ready(function(){function BatchSRA(options){this.count=0;var defaults={batchOne:['leaderboard','prearticle','mobile_prearticle'],batches:[],scrollBatches:[]};this.options=$.extend({},defaults,options||{});this.batchOne();this.setUpBatches();if(this.options.scrollBatches.length)
+this.setUpScrollBatches();}
+BatchSRA.prototype.batchOne=function(){if(typeof(sessionStorage.leaderboard)=='undefined'){sessionStorage.leaderboard=true;}else{var index=this.options.batchOne.indexOf('leaderboard');this.options.batchOne.splice(index,1);}
+this.createBatch(this.options.batchOne,this.count++)}
+BatchSRA.prototype.setUpBatches=function(){var _this=this;$.each(this.options.batches,function(index,item){_this.createBatch(item,_this.count++);})}
+BatchSRA.prototype.setUpScrollBatches=function(){var _this=this;var railScrollAds=$(this.options.scrollBatches[0]);railScrollAds.each(function(index,value){var target=$(value);var scrollAd=$($(_this.options.scrollBatches[1])[index]);_this.createBatch([target,scrollAd],_this.count++);});}
+BatchSRA.prototype.createBatch=function(slotArray,batch){console.log('TOH Ad Stack','Creating batch',batch,slotArray);if(!(slotArray instanceof Array)){return false;}
+if(typeof(batch)=='undefined'){batch=1;}
+for(var i=0;i<slotArray.length;i++){if(slotArray[i]instanceof jQuery){var target=$(slotArray[i]);}
+else{var target=$('[data-ad='+slotArray[i]+']');}
+if($(target).length&&!$(target).attr('data-batch')){$(target).attr('data-batch',batch);}}}
+if(tmbi_ad_data.pageType==='listicle'){var batches=[['ad-sidebar-top','listicle-top-adunit-lazy'],['ad-sidebar-middle','listicle-middle-adunit-lazy']];var scrollBatch=['.sidebar-ad','.listicle-scroll-adunit-lazy'];new BatchSRA({batches:batches,scrollBatches:scrollBatch});}else if(tmbi_ad_data.pageType==='recipe'){var batches=[['ad-sidebar-top','recipe-top'],['ad-sidebar-middle','recipe-top-mobile'],['ad-sidebar-bottom'],['ad-sidebar-fourth']];new BatchSRA({batches:batches,scrollBatches:scrollBatch});}else if(tmbi_ad_data.pageType==='projectdetail'){var batches=[['ad-sidebar-top','project-detail-top'],['ad-sidebar-middle','project-detail-middle']];var scrollBatch=['[data-ad="sidebar-ad"]','[data-ad="project-detail-scroll"]'];new BatchSRA({batches:batches,scrollBatches:scrollBatch});}else if(tmbi_ad_data.pageType==='homepage'){var batches=[['home-rail-top','home-content-top'],['home-rail-middle','home-content-middle']];var scrollBatch=['[data-ad="home-rail-scroll"]','[data-ad="home-content-scroll"]'];new BatchSRA({batches:batches,scrollBatches:scrollBatch});}})

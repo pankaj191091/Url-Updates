@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQYOVVdSGwcFUFRVBQQA"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found | Taste of Home</title>
+<!-- I'm sorry but you don't seem to have a site. Please check the number and try again. -->
+
+<meta property="fb:pages" content="61511025427" /><meta name="msvalidate.01" content="E95ABC1A248FFE4A75E71FFFCDE5F377" />
+<!-- This site is optimized with the Yoast SEO Premium plugin v7.6.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Page not found | Taste of Home" />
+<meta property="og:site_name" content="Taste of Home" />
+<meta property="fb:app_id" content="301660770297572" />
+<meta property="og:image" content="https://www.tasteofhome.com/wp-content/uploads/2017/08/Taste-of-Home-Logo.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Page not found | Taste of Home" />
+<meta name="twitter:site" content="@tasteofhome" />
+<meta name="twitter:image" content="https://www.tasteofhome.com/wp-content/uploads/2017/08/Taste-of-Home-Logo.png" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//js-sec.indexww.com' />
+<link rel='dns-prefetch' href='//www.googletagservices.com' />
+<link rel='dns-prefetch' href='//s.ntv.io' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Taste of Home &raquo; Feed" href="https://www.tasteofhome.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Taste of Home &raquo; Comments Feed" href="https://www.tasteofhome.com/comments/feed/" />
+
+<script type="text/javascript">
+var digitalData = {"page":{"theme":"tmbi-theme-v3","sitename":"toh","pageName":"Page not found | Taste of Home","content":{"contentName":"Page not found | Taste of Home"}},"ab":{"testing":"redesign:design_v2"}};
+</script>
+<script type="text/javascript" src="//assets.adobedtm.com/c30a7f4dba5fcf320694d4fefeabd1cf4867f8ed/satelliteLib-247ea3eef67c38bd658d7bf9d4d87aa2e09a9dc9.js"></script>
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.4\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.tasteofhome.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.7"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56692,8205,9792,65039],[55357,56692,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='opinionstage-style-css'  href='https://www.tasteofhome.com/wp-content/plugins/social-polls-by-opinionstage/opinionstage-style-common.css?ver=4.9.7' type='text/css' media='all' />
+<link rel='stylesheet' id='opinionstage-font-style-css'  href='https://www.tasteofhome.com/wp-content/plugins/social-polls-by-opinionstage/opinionstage-font.css?ver=4.9.7' type='text/css' media='all' />
+<link rel='stylesheet' id='tohv2-child-theme-css'  href='https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/toh-above-the-fold.min.css?ver=3.7.34' type='text/css' media='all' />
+<link rel='stylesheet' id='gch-frontend-styles-css'  href='https://www.tasteofhome.com/wp-content/plugins/genesis-custom-headers/css/gch-frontend-styles.css?ver=4.9.7' type='text/css' media='all' />
+<link rel='stylesheet' id='gpt-ads-style-css'  href='https://www.tasteofhome.com/wp-content/plugins/tmbi-ad-stack/css/helper.css?ver=1.6.8' type='text/css' media='all' />
+<link rel='stylesheet' id='tmbi-embed-style-css'  href='https://www.tasteofhome.com/wp-content/plugins/tmbi-embed-listicle/css/tmbi-listicle.css?ver=0.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='tohv2-custom-listicle-css'  href='https://www.tasteofhome.com/wp-content/plugins/tmbi-embed-listicle/css/tohv2-custom-listicle.css?ver=0.1.7' type='text/css' media='all' />
+<link rel='stylesheet' id='gsfw-stylesheet-css'  href='https://www.tasteofhome.com/wp-content/plugins/genesis-variable-footer-widgets/css/style.min.css?ver=1.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tohv2-child-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato%3A400%2C400i%2C700%2C700i%7COpen+Sans%3A400%2C400i%2C600%2C600i%2C700%2C700i&#038;ver=3.7.34' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://www.tasteofhome.com/wp-includes/css/dashicons.min.css?ver=4.9.7' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-styles-css'  href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=3.7.34' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var login_guid = [];
+var login_name = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/mu-plugins/cookie-controller/js/cookie.min.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-sticky-feature/js/sticky-plugin.js?ver=1.0.1'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-sticky-feature/js/sticky-custom.js?ver=1.0.1'></script>
+<script async type='text/javascript' src='//js-sec.indexww.com/ht/p/184414-1485294554771.js?ver=1.1'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/mu-plugins/jquery-plugins/jquery.inview.custom.min.js?ver=1.3'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/rd-taboola/js/toh-taboola-loader.js?ver=0.2.1'></script>
+<script async type='text/javascript' src='https://www.googletagservices.com/tag/js/gpt.js?ver=1.6.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tmbi_ad_data = {"property":"6178","siteId":"toh","pageType":"404page","urlPath":"\/wp-content\/themes\/tmbi-theme-v3\/js\/jquery.touchswipe.min.js?ver=3.7.34","keywords":"no_keywords","category":"no_value","topic":"no_value","header_bidders_timeout":"2500","_gfc":"","should_use_batch_SRA":"","ad_slots":{"sponsor-logo":{"slotUrl":"sponsorattribution","sizes":{"mobile":[[4,4]],"tablet":[[4,4]],"desktop":[[4,4]],"large_screen":[[4,4]]},"targeting":{"tf":["atf"],"pos":["sponsor"],"location":["sponsorattribution"]},"supported_types":[]},"postarticle":{"slotUrl":"postarticle","sizes":{"mobile":[[300,250],[300,600],[3,3]],"tablet":[[728,90],[640,360],[300,250],[3,3]],"desktop":[[970,550],[970,250],[970,90],[728,90],[3,3]],"large_screen":[[970,550],[970,250],[970,90],[728,90],[3,3]]},"targeting":{"tf":["btf"],"pos":["postarticle"],"location":["bottom"]},"supported_types":[],"change_size":{"category":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90]]},"archive":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90]]},"projectdetail":{"mobile":[[300,250],[300,600]],"tablet":[[300,250],[300,600]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90]]}}},"div-gpt-ad-1370019314148-05":{"slotUrl":"prearticle","sizes":{"mobile":[[320,50]],"tablet":[],"desktop":[],"large_screen":[]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[]},"div-gpt-ad-1370019314149-02":{"slotUrl":"postarticle","sizes":{"mobile":[[300,250],[300,600]],"tablet":[[728,90],[640,360]],"desktop":[[970,250],[970,90],[728,90]],"large_screen":[[970,250],[970,90]]},"targeting":{"tf":["btf"],"pos":["postarticle"],"location":["bottom"]},"supported_types":[]},"ad-sidebar-top":{"slotUrl":"railtop","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[300,250]]},"targeting":{"tf":["atf"],"pos":["railtop"],"location":["rail"]},"supported_types":[]},"mobile_prearticle":{"slotUrl":"prearticle","sizes":{"mobile":[[320,50]],"tablet":[],"desktop":[],"large_screen":[]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[]},"prearticle":{"slotUrl":"prearticle","sizes":{"mobile":[],"tablet":[[728,90],[640,360]],"desktop":[[970,250],[970,90],[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"targeting":{"tf":["atf"],"pos":["prearticle"],"location":["top"]},"supported_types":[],"change_size":{"homepage":{"mobile":[],"tablet":[[320,50]],"desktop":[[640,360],[728,90]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"recipe":{"mobile":[],"tablet":[[728,90],[640,360]],"desktop":[[970,250],[970,90],[728,90],[3,3]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"category":{"mobile":[],"tablet":[[300,250],[320,50]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"archive":{"mobile":[],"tablet":[[300,250],[320,50]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]},"projectdetail":{"mobile":[],"tablet":[[320,50]],"desktop":[[728,90],[640,360]],"large_screen":[[970,250],[970,90],[728,90],[3,3]]}}},"leaderboard":{"slotUrl":"oop","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[1,1]]},"targeting":{"tf":["atf"],"pos":["oop"],"location":["oop"]},"supported_types":[]},"ad-sidebar-middle":{"slotUrl":"railmiddle","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[300,250],[300,600]]},"targeting":{"tf":["btf"],"pos":["railmiddle"],"location":["rail"]},"supported_types":["listicle","article","recipe","projectdetail"]},"ad-sidebar-bottom":{"slotUrl":"railscroll","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[160,600],[300,250],[300,600],[300,1050]]},"targeting":{"tf":["btf"],"pos":["railscroll"],"location":["rail"]},"supported_types":["article","recipe"]},"top-adunit-lazy":{"slotUrl":"top","sizes":{"mobile":[[320,50],[300,250]],"tablet":[],"desktop":[],"large_screen":[]},"targeting":{"tf":["atf"],"pos":["top"],"location":["top"]},"supported_types":["article"]},"middle-adunit-lazy":{"slotUrl":"middle","sizes":{"mobile":[[300,250]],"tablet":[[728,90],[640,360]],"desktop":[],"large_screen":[]},"targeting":{"tf":["btf"],"pos":["middle"],"location":["middle"]},"supported_types":["article"]},"scroll-adunit-lazy":{"slotUrl":"scroll","sizes":{"mobile":[[300,250],[300,600]],"tablet":[[728,90],[640,360]],"desktop":[],"large_screen":[]},"targeting":{"tf":["btf"],"pos":["scroll"],"location":["scroll"]},"supported_types":["article"]},"ad-sidebar-fourth":{"slotUrl":"railscroll","sizes":{"mobile":[],"tablet":[],"desktop":[],"large_screen":[[160,600],[300,250],[300,600],[300,1050]]},"targeting":{"tf":["btf"],"pos":["railscroll"],"location":["rail"]},"supported_types":["article","recipe"]},"embedded-listicle-ads":{"slotUrl":"scroll","sizes":{"mobile":[[300,250]],"tablet":[[300,250]],"desktop":[[640,360],[300,250]],"large_screen":[[640,360],[300,250]]},"targeting":{"tf":["btf"],"pos":["scroll"],"location":["middle"]},"supported_types":["article"]}},"global_targeting":[],"lotameID":"LOTCC_10234","platform":"desktop","ad_unit_two":"article","overrides":[]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-ad-stack/js/tmbi-ad-stack.js?ver=1.6.8'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-amazon-a9/js/amazon-lib.js?ver=1.4'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-amazon-a9/js/tmbi-amazon-a9.js?ver=1.4'></script>
+<script async type='text/javascript' src='//s.ntv.io/serve/load.js?ver=1.2'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/genesis/lib/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/slinky.min.js?ver=3.7.34'></script>
+<link rel='https://api.w.org/' href='https://www.tasteofhome.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.tasteofhome.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.tasteofhome.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.9.7" />
+<style type="text/css"> .enews .screenread {
+	height: 1px;
+    left: -1000em;
+    overflow: hidden;
+    position: absolute;
+    top: -1000em;
+    width: 1px; } </style>
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','gaplusu');
+
+                                                            gaplusu('create', 'UA-38657577-1', 'auto');
+                    
+                                        
+                    gaplusu('send', 'pageview');
+                
+                            </script>
+
+		<script type="application/ld+json">false</script>
+<meta name="pageName" content = "How to Make Apple Roses">
+<meta name="contentId" content = "766788">
+
+<script type="application/ld+json">
+{
+    "@context": "https:\/\/schema.org",
+    "@type": "Organization",
+    "name": "Taste of Home",
+    "url": "https:\/\/www.tasteofhome.com\/",
+    "logo": "https:\/\/cdn1.tmbi.com\/TOH\/Images\/toh-logo-red.gif",
+    "sameAs": [
+        "https:\/\/www.facebook.com\/tasteofhome",
+        "https:\/\/twitter.com\/tasteofhome",
+        "https:\/\/plus.google.com\/+tasteofhome",
+        "https:\/\/www.instagram.com\/tasteofhome\/",
+        "https:\/\/www.youtube.com\/tasteofhome",
+        "https:\/\/www.pinterest.com\/taste_of_home\/",
+        "https:\/\/en.wikipedia.org\/wiki\/Taste_of_Home"
+    ],
+    "ContactPoint": [
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-877-732-4438",
+            "contactType": "customer service",
+            "contactOption": "http:\/\/schema.org\/TollFree",
+            "areaServed": "US",
+            "availableLanguage": "English"
+        },
+        {
+            "@type": "ContactPoint",
+            "telephone": "+1-877-342-4775",
+            "contactType": "technical support",
+            "contactOption": "http:\/\/schema.org\/TollFree",
+            "areaServed": "US",
+            "availableLanguage": "English"
+        },
+        {
+            "@type": "ContactPoint",
+            "telephone": " +1-800-880-3012",
+            "contactType": "sales",
+            "contactOption": "http:\/\/schema.org\/TollFree",
+            "areaServed": "US",
+            "availableLanguage": "English"
+        }
+    ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https:\/\/schema.org",
+    "@type": "Article",
+    "@id": "https:\/\/www.tasteofhome.com\/article\/how-to-make-apple-roses\/",
+    "headline": "How to Make Apple Roses",
+    "datePublished": "2018-09-13T18:02:46Z",
+    "articleBody": "The world's most beautiful comfort food might be apple roses. It's the perfect treat\u2014beautiful, buttery and flaky. It's also surprisingly easy to prepare. You should be able to get your apple roses in the oven in about 20 minutes! Serve with a hearty breakfast casserole or as a Sunday snack.\r\n\r\nHow to Make Apple Roses\r\nThis recipe was developed by Tessa Arias for her blog, Handle the Heat.\r\nIngredients\r\n\r\n \t2 apples (Pink Lady, Braeburn or Honeycrisp)\r\n \tJuice of half a lemon\r\n \t2 tablespoons brown sugar\r\n \t2 tablespoons unsalted butter, melted\r\n \t1\/2 teaspoon ground cinnamon\r\n \t1\/4 teaspoon ground nutmeg\r\n \t1 sheet puff pastry, thawed\r\n \t1 tablespoon flour, for dusting\r\n \t3 tablespoons apricot or strawberry preserves\r\n \tPowdered sugar, for dusting\r\n\r\nInstructions\r\nStep 1: Get organized\r\nThough I'm usually not a good planner, prepping ahead of time makes the process easier. Make sure you have all of the ingredients necessary, and that your puff pastry is at room temp. Grease a muffin tin. Preheat your oven to 375\u00b0F.\r\n\r\nStep 2: Prep your apples\r\nCore the apples. Use a sharp knife or mandoline to cut super-thin slices, but keep in mind that you want the apples to have some red visible on the edge. Toss in the lemon juice to prevent browning. (This trick will keep apples from browning, too.)\r\nToss apples in the butter, sugar, cinnamon and nutmeg. Microwave the slices for 45 seconds, or until they're soft enough to mold.\r\n\r\nStep 3: Create the apple roses\r\n\r\nRoll out your dough on a lightly floured service. (It should create a 9 by 12-inch rectangle.) Cut into six 2-inch wide strips. In a small bowl, combine the preserves with 2 tablespoons of water. Spread evenly on the dough. Arrange about 10 apple slices lengthwise in a straight line, overlapping slightly, on the dough. (I put mine peel side up to add some red to the roses.)\r\n\r\nFold up the bottom part of the dough and tightly roll the dough to form a rose shape.\r\n\r\nPut in a muffin tin. Repeat for all the roses!\r\n\r\nStep 4: Bake away\r\n\r\nBake for 40 minutes, or until golden brown. Relax and bask in your greatness for making such a delicious treat. These are best when you dust with powdered sugar and eat them immediately, while they're still warm!\r\n[collection id=\"13398\" title=\"More Amazing Apple Desserts\"]\r\n\r\n[cf]skyword_tracking_tag[\/cf]",
+    "dateModified": "2018-09-13T18:02:46Z",
+    "thumbnailUrl": "https:\/\/www.tasteofhome.com\/wp-content\/uploads\/2018\/09\/Apple-Roses-01.jpg",
+    "mainEntityOfPage": {
+        "@type": "Article",
+        "@id": "https:\/\/www.tasteofhome.com\/article\/how-to-make-apple-roses\/"
+    },
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Julia K. Porter"
+        }
+    ],
+    "image": {
+        "@type": "ImageObject",
+        "url": "https:\/\/www.tasteofhome.com\/wp-content\/uploads\/2018\/09\/Apple-Roses-01.jpg",
+        "height": {
+            "@type": "Intangible",
+            "name": 800
+        },
+        "width": {
+            "@type": "Intangible",
+            "name": 1200
+        }
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Taste of Home",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/cdn1.tmbi.com\/TOH\/Images\/toh-logo-red.gif"
+        }
+    },
+    "url": "https:\/\/www.tasteofhome.com\/article\/how-to-make-apple-roses\/",
+    "dateCreated": "2018-09-13T18:02:46Z",
+    "articleSection": [
+        "How To"
+    ],
+    "creator": [
+        {
+            "@type": "Person",
+            "name": "Julia K. Porter"
+        }
+    ],
+    "keywords": ""
+}
+</script>
+<link rel="icon" href="https://www.tasteofhome.com/wp-content/uploads/2017/08/cropped-Taste-of-Home-Logo-348x348.png" sizes="32x32" />
+<link rel="icon" href="https://www.tasteofhome.com/wp-content/uploads/2017/08/cropped-Taste-of-Home-Logo-348x348.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.tasteofhome.com/wp-content/uploads/2017/08/cropped-Taste-of-Home-Logo-348x348.png" />
+<meta name="msapplication-TileImage" content="https://www.tasteofhome.com/wp-content/uploads/2017/08/cropped-Taste-of-Home-Logo-348x348.png" />
+</head>
+<body class="error404 header-full-width full-width-content"><div class="site-container"><section><span class="screen-reader-text">Skip links</span><ul class="genesis-skip-link"><li><a href="#genesis-content" class="screen-reader-shortcut"> Skip to content</a></li></ul></section>
+<div class="white-out"></div>
+<!-- Ad Start:BILLBOARD_PLACEMENT -->
+<div class="ad-wrapper mobile_billboard" data-ad="mobile_prearticle" >
+<div id='div-gpt-ad-1370019314148-05' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:BILLBOARD_PLACEMENT -->
+<header class="site-header"><div class="wrap">	<div class="desktop-upper-wrapper">
+		<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<div class="menu-upper-right-menu-container"><ul id="menu-upper-right-menu" class="desktop-upper-menu"><li id="menu-item-677176" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Submit a recipe","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/recipes/add">Submit a recipe</a></li>
+<li id="menu-item-677178" class="login-class menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Login","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/login/index?returnurl=https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/jquery.touchswipe.min.js?ver=3.7.34">Login</a></li>
+<li id="menu-item-677179" class="join-link menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Join","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/login/index?returnurl=https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/jquery.touchswipe.min.js?ver=3.7.34">Join</a></li>
+</ul></div><div id="subscribe-to-magazine"><a data-analytics-metrics='{"link_name":"subscribe","link_module":"header","link_pos":"secondary navigation"}' class="subscribe-header-cta" target="_blank" rel="noopener" href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&cds_page_id=217957&cds_response_key=IVKADU101"><img class="subscribe-logo" alt="Subscribe" src="https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/images/subscribe-to-the-magazine.png"></a></div>	</div>
+	<!-- .desktop-upper-wrapper -->
+
+	<button id="toh-menu-toggle" class="toh-menu-toggle" aria-expanded="false" aria-controls="toh-menu-wrapper">
+		<div class="toh-menu-icon" aria-hidden="true">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="menu-close">Menu</div>
+		<div class="menu-open">Close</div>
+	</button>
+	<!-- .toh-menu-toggle -->
+
+	<div class="toh-menu-wrapper" id="toh-menu-wrapper" aria-hidden="true">
+
+		<div class="toh-site-menu-wrapper">
+			<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<div class="menu-hamburger-menu-container"><ul id="menu-hamburger-menu" class="toh-site-menu"><li id="menu-item-677193" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Recipes</a>
+<ul class="sub-menu">
+	<li id="menu-item-677199" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:Appetizers","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/course/appetizers/">Appetizers</a></li>
+	<li id="menu-item-677208" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:Breakfast","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/course/breakfast-recipes/">Breakfast</a></li>
+	<li id="menu-item-677213" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:Desserts","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/course/desserts/">Desserts</a></li>
+	<li id="menu-item-677215" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:Dinner","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/course/dinner-recipes/">Dinner</a></li>
+	<li id="menu-item-690634" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:Partner Recipes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/partner-recipes/">Partner Recipes</a></li>
+	<li id="menu-item-677219" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes:See All Recipes","link_module":"header","link_pos":"drop down navigation"}' href="https://www.tasteofhome.com/recipes/">See All Recipes</a></li>
+</ul>
+</li>
+<li id="menu-item-677221" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Holidays","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/holidays-celebrations/">Holidays</a></li>
+<li id="menu-item-677226" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Food News","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/food-news/">Food News</a></li>
+<li id="menu-item-690639" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Home &amp; Living","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/home-living/">Home &#038; Living</a></li>
+<li id="menu-item-690636" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Kitchen","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/kitchen/">Kitchen</a></li>
+<li id="menu-item-677227" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Contests","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/contests">Contests</a></li>
+<li id="menu-item-677228" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Magazine","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/article/subscribe-to-our-magazines/">Magazine</a></li>
+<li id="menu-item-677233" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Shop","link_module":"header","link_pos":"main navigation"}' href="https://www.shoptasteofhome.com/?utm_source=toh.com&amp;utm_medium=website&amp;utm_campaign=homepagemenu1805">Shop</a></li>
+<li id="menu-item-677238" class="login-class menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Log In \/ Join","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/login">Log In / Join</a></li>
+<li id="menu-item-677242" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Submit a Recipe","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/recipes/add">Submit a Recipe</a></li>
+<li id="menu-item-677246" class="non-logged-in-subscribe menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Subscribe","link_module":"header","link_pos":"main navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&amp;cds_page_id=217957&amp;cds_response_key=IW7ADU101">Subscribe</a></li>
+<li id="menu-item-730861" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Newsletters","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/newslettersignuppage/index?OptID=82&amp;OrgSource=CMHeader&amp;pmcode=CMHeader">Newsletters</a></li>
+</ul></div>		</div>
+		<!-- .toh-site-menu-wrapper -->
+		<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<div class="menu-logged-in-menu-container"><ul id="menu-logged-in-menu" class="toh-secondary-menu"><li id="menu-item-677249" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Recipe Box","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/recipe-box">My Recipe Box</a></li>
+<li id="menu-item-677253" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Newsletters","link_module":"header","link_pos":"main navigation"}' href="http://pages.email.rd.com/page.aspx?QS=c76003443ff9837d8be7f695a15a349a7fa004aee9d157b6&amp;bn=TasteofHome&amp;ehid=">My Newsletters</a></li>
+<li id="menu-item-677255" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Account","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/myaccount/index">My Account</a></li>
+<li id="menu-item-677260" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Customer Care","link_module":"header","link_pos":"main navigation"}' href="http://goto.tasteofhome.com/redirects/23040">Customer Care</a></li>
+<li id="menu-item-677262" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Subscribe","link_module":"header","link_pos":"main navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&amp;cds_page_id=212916&amp;cds_response_key=IW7ADU101">Subscribe</a></li>
+<li id="menu-item-677265" class="user-logout menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a data-analytics-metrics='{"link_name":"Log out","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/">Log out</a></li>
+</ul></div>		<!-- .toh-secondary-menu -->
+	</div>
+	<!-- .toh-menu-wrapper -->
+
+	<a data-analytics-metrics='{"link_name":"home logo","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com" class="header-logo"><span class="screen-reader-text">Home</span></a>
+	<!-- .header-logo -->
+<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<div class="menu-desktop-focus-menu-container"><ul id="menu-desktop-focus-menu" class="focus-menu"><li id="menu-item-677187" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Recipes","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/recipes/">Recipes</a></li>
+<li id="menu-item-677192" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Win a Multi-Cooker","link_module":"header","link_pos":"main navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&amp;cds_page_id=225230&amp;cds_response_key=IWGAJUA01">Win a Multi-Cooker</a></li>
+<li id="menu-item-677189" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Dinner","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/course/dinner-recipes/">Dinner</a></li>
+<li id="menu-item-677184" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Appetizers","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/course/appetizers/">Appetizers</a></li>
+</ul></div>	<!-- .focus-menu -->
+
+
+	<div class="toh-search-form">
+		<form data-analytics-metrics='{"link_name":"search","link_module":"header","link_pos":"search bar"}' action="https://www.tasteofhome.com/search/index" id="toh-search-form-wrapper">
+			<label for="search" class="screen-reader-text">Search</label>
+			<input type="text" id="search" name="search" />
+			<input type="submit" value="Search">
+			<div class="close-btn"><i class="fa fa-times"></i> </div>
+		</form>
+		<button class="toh-search-button" id="toh-search-toggle"><span class="screen-reader-text">Toggle Search</span></button>
+	</div>
+	<!-- .toh-search-form -->
+
+	<div class="toh-logged-in-wrapper" style="display:none">
+		<button class="toh-logged-in-menu-toggle" id="toh-logged-in-menu-toggle" aria-expanded="false" aria-controls="toh-logged-in-menu-wrapper">Hi, <span class="toh-logged-username"></span></button>
+		<div class="toh-logged-in-menu-wrapper" id="toh-logged-in-menu-wrapper" aria-hidden="true">
+			<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<div class="menu-logged-in-menu-container"><ul id="menu-logged-in-menu-1" class="toh-logged-in-menu"><li id="menu-item-677249" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Recipe Box","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/recipe-box">My Recipe Box</a></li>
+<li id="menu-item-677253" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Newsletters","link_module":"header","link_pos":"secondary navigation"}' href="http://pages.email.rd.com/page.aspx?QS=c76003443ff9837d8be7f695a15a349a7fa004aee9d157b6&amp;bn=TasteofHome&amp;ehid=">My Newsletters</a></li>
+<li id="menu-item-677255" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"My Account","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/myaccount/index">My Account</a></li>
+<li id="menu-item-677260" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Customer Care","link_module":"header","link_pos":"secondary navigation"}' href="http://goto.tasteofhome.com/redirects/23040">Customer Care</a></li>
+<li id="menu-item-677262" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Subscribe","link_module":"header","link_pos":"secondary navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&amp;cds_page_id=212916&amp;cds_response_key=IW7ADU101">Subscribe</a></li>
+<li id="menu-item-677265" class="user-logout menu-item menu-item-type-custom menu-item-object-custom menu-item-home"><a data-analytics-metrics='{"link_name":"Log out","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/">Log out</a></li>
+</ul></div>		</div>
+	</div>
+
+	<!-- NOTE: Output only for logged-OUT users -->
+	<a data-analytics-metrics='{"link_name":"login","link_module":"header","link_pos":"secondary navigation"}' href="https://www.tasteofhome.com/login" class="header-login-link appears-on-stick">
+		Log In
+	</a>
+
+	<div id="subscribe-to-magazine-sticky">
+	<a data-analytics-metrics='{"link_name":"subscribe","link_module":"header","link_pos":"secondary navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&cds_page_id=217957&cds_response_key=IVKADU101" class="subscribe-header-cta appears-on-stick">
+		<img class="subscribe-logo" src="https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/images/subscribe-to-the-magazine.png"  alt="Subscribe">
+	</a>
+</div>
+	<!-- .subscribe-header-cta.appears-on-stick END logged-out users -->
+
+</div></header><div class="header-banner-container"><a data-analytics-metrics='{"link_name":"Sign Up for Our Newsletters","link_module":"header","link_pos":"internal promotion"}' href="https://www.tasteofhome.com/newslettersignuppage/index?OptID=82&OrgSource=CMHeader&pmcode=CMHeader" target="_blank"><span class="header-banner-text">Sign Up for Our Newsletters<span class="chevron">&rsaquo;</span></span></a></div><div class="site-inner">	<div id="primary" class="content-sidebar-wrap">
+		<div id="content" class="site-content" role="main">
+			<div class="page-content error-content">
+				<section id="text-2" class="widget widget_text"><div class="widget-wrap"><h3 class="widgettitle widget-title">Oh Dear, it looks like the page you were looking for is missing from our cookbook!</h3>
+			<div class="textwidget"><p>Don&#8217;t worry, we&#8217;ve got all the right ingredients to help you get what you&#8217;re craving to read.</p>
+</div>
+		</div></section>
+<section id="search-2" class="widget widget_search"><div class="widget-wrap"><h3 class="widgettitle widget-title">Search Recipes &#038; Home Cooking Tips</h3>
+<form class="search-form" method="get" action="https://www.tasteofhome.com/"><meta itemprop="target" content="https://www.tasteofhome.com/?s={s}"/><label class="search-form-label screen-reader-text" for="searchform-5b9b4e9fa287d7.17742759">Search this website</label><input itemprop="query-input" type="search" name="s" id="searchform-5b9b4e9fa287d7.17742759" placeholder="Search this website &#x2026;" /><input type="submit" value="Search" /></form></div></section>
+<section id="text-3" class="widget widget_text"><div class="widget-wrap"><h3 class="widgettitle widget-title">Popular Recipes</h3>
+			<div class="textwidget"><ul>
+<li><a href="https://www.tasteofhome.com/recipes/the-ultimate-chicken-noodle-soup/">Ultimate Chicken Soup</a></li>
+<li><a href="https://www.tasteofhome.com/recipes/basic-homemade-bread/">Basic Homemade Bread</a></li>
+<li><a href="https://www.tasteofhome.com/recipes/flavorful-chicken-fajitas/">Flavorful Chicken Fajitas</a></li>
+<li><a href="https://www.tasteofhome.com/recipes/slow-cooker-pot-roast/">Slow Cooker Pot Roast</a></li>
+<li><a href="https://www.tasteofhome.com/recipes/apple-pie/">Apple Pie</a></li>
+</ul>
+</div>
+		</div></section>
+<section id="text-4" class="widget widget_text"><div class="widget-wrap"><h3 class="widgettitle widget-title">What&#8217;s Trending</h3>
+			<div class="textwidget"><ul>
+<li><a href="https://www.tasteofhome.com/collection/slow-cooker-dump-dinners/view-all/">Dump Dinners for your Slow Cooker</a></li>
+<li><a href="https://www.tasteofhome.com/collection/ways-to-cook-boneless-skinless-chicken-breasts/view-all/">Ways to Cook Boneless, Skinless Chicken Breasts</a></li>
+<li><a href="https://www.tasteofhome.com/collection/easy-desserts-with-5-ingredients-or-less/view-all/">Easy Dessert Recipes with 5 ingredients or less</a></li>
+<li><a href="https://www.tasteofhome.com/collection/restaurant-copycat-recipes/view-all/">Restaurant Copycat Recipes</a></li>
+<li><a href="https://www.tasteofhome.com/collection/top-10-quick-dinners/view-all/">Top 10 Quick Dinners</a></li>
+</ul>
+</div>
+		</div></section>
+			</div><!-- .page-content -->
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+</div>
+<!-- Ad Start:MOBILE_FOOTER_PLACEMENT -->
+<div class="ad-wrapper mobile_footer adunit-lazy" data-ad="postarticle" >
+<div id='div-gpt-ad-1370019314149-02' style='display:none; margin: 0 auto;' class='ad-container'>
+</div>
+</div>
+<!-- Ad End:MOBILE_FOOTER_PLACEMENT -->
+<footer class="site-footer"><div class="wrap"><div class="footer-left">
+	<div class="toh-newsletter footer-mobile">
+		<div class="toh-newsletter-cta-wrapper">
+			<div class="toh-newsletter-cta-description">
+				Sign-up for recipes to your inbox			</div>
+			<a data-analytics-metrics='{"link_name":"subscribe","link_module":"footer","link_pos":"navigation"}' href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&cds_page_id=217957&cds_response_key=IVKADU101">
+				<img class="subscribe-logo" src="https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/images/subscribe-to-the-magazine.png" >
+			</a>
+		</div>
+	</div>
+	<div class="footer-left-top">
+		<div class="footer-logo-social">
+			<a data-analytics-metrics='{"link_name":"footer logo","link_module":"navigation","link_pos":"footer"}' class="footer-logo" href="https://www.tasteofhome.com"></a>
+			<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<ul id="menu-tmbi-social-profiles" class="footer-social-links"><li id="menu-item-86501" class="tmbi-facebook menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"facebook","link_module":"footer","link_pos":"follow us"}' href="https://www.facebook.com/tasteofhome/"><i class="fa fa-facebook"></i></a></li>
+<li id="menu-item-5334" class="tmbi-pinterest menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"pinterest","link_module":"footer","link_pos":"follow us"}' href="https://pinterest.com/taste_of_home"><i class="fa fa-pinterest"></i></a></li>
+<li id="menu-item-5338" class="tmbi-twitter menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"twitter","link_module":"footer","link_pos":"follow us"}' href="https://twitter.com/tasteofhome"><i class="fa fa-twitter"></i></a></li>
+<li id="menu-item-5346" class="tmbi-google menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"google plus","link_module":"footer","link_pos":"follow us"}' href="https://plus.google.com/+tasteofhome/posts"><i class="fa fa-google-plus"></i></a></li>
+<li id="menu-item-5350" class="tmbi-instagram menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"instagram","link_module":"footer","link_pos":"follow us"}' href="https://www.instagram.com/tasteofhome/"><i class="fa fa-instagram"></i></a></li>
+</ul>		</div>
+		<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<ul id="menu-footer-one" class="footer-site-links"><li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="https://www.tasteofhome.com/recipes/" data-analytics-metrics='{"link_name":"Recipes","link_module":"footer","link_pos":"navigation"}'>Recipes</a></li>
+<li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47"><a href="https://www.tasteofhome.com/holidays-celebrations/" data-analytics-metrics='{"link_name":"Holidays","link_module":"footer","link_pos":"navigation"}'>Holidays</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a href="https://www.tasteofhome.com/food-news/" data-analytics-metrics='{"link_name":"Food News","link_module":"footer","link_pos":"navigation"}'>Food News</a></li>
+<li id="menu-item-769700" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-769700"><a href="https://www.tasteofhome.com/home-living/" data-analytics-metrics='{"link_name":"Home &amp; Living","link_module":"footer","link_pos":"navigation"}'>Home &#038; Living</a></li>
+</ul><ul class="footer-site-links"><li id="menu-item-49" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49"><a target="_blank" href="https://www.tasteofhome.com/kitchen/" data-analytics-metrics='{"link_name":"Kitchen","link_module":"footer","link_pos":"navigation"}'>Kitchen</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="https://www.tasteofhome.com/contests/" data-analytics-metrics='{"link_name":"Contests","link_module":"footer","link_pos":"navigation"}'>Contests</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"><a href="https://www.tasteofhome.com/article/subscribe-to-our-magazines/" data-analytics-metrics='{"link_name":"Magazines","link_module":"footer","link_pos":"navigation"}'>Magazines</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-48"><a href="https://www.tasteofhome.com/kitchen/how-to/" data-analytics-metrics='{"link_name":"How-To","link_module":"footer","link_pos":"navigation"}'>How-To</a></li>
+</ul>	</div>
+
+	<div class="toh-newsletter footer-mobile">
+		<div class="toh-newsletter-title">Sign-up for recipes to your inbox</div>
+		<form action="https://www.tasteofhome.com/newslettersignuppage/index" method="post"  data-analytics-metrics='{"link_name":"newsletter signup","link_module":"newsletter signup","link_pos":"footer"}'>
+			<input class="toh-footer-nl" type="text" name="EmailAddress" placeholder="Email Address">
+			<button type="submit" class="toh-sign-up-btn">
+				Sign up			</button>
+		</form>
+	</div>
+
+	<div class="footer-left-bottom">
+		<div class="footer-menu-label">Our Brands</div>
+		<!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<ul id="menu-our-brands" class="footer-brand-links"><li id="menu-item-677169" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Reader&#039;s Digest","link_module":"navigation","link_pos":"footer"}' href="https://www.rd.com/">Reader&#8217;s Digest</a></li>
+<li id="menu-item-677170" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"The Family Handyman","link_module":"navigation","link_pos":"footer"}' href="https://www.familyhandyman.com/">The Family Handyman</a></li>
+<li id="menu-item-677174" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Birds &amp; Blooms","link_module":"navigation","link_pos":"footer"}' href="http://www.birdsandblooms.com/">Birds &#038; Blooms</a></li>
+</ul><!-- Default Label -- MARK POINT assumed because &#36;value was not set. -->
+<ul id="menu-footer-two" class="footer-global-links"><li id="menu-item-52" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"About Us","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/help/about-taste-of-home">About Us</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Contests","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/contests">Contests</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"RSS","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/rss">RSS</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"Magazine Customer Service","link_module":"header","link_pos":"main navigation"}' href="http://goto.tasteofhome.com/redirects/25032">Magazine Customer Service</a></li>
+<li id="menu-item-5472" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Contact Us","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/help/contact-us">Contact Us</a></li>
+<li id="menu-item-57" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Log In","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/login/index">Log In</a></li>
+<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Help","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/taste-of-home-help">Help</a></li>
+<li id="menu-item-5475" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Press Room","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/press-room">Press Room</a></li>
+<li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"Advertising","link_module":"header","link_pos":"main navigation"}' href="http://mediakit.tasteofhome.com/">Advertising</a></li>
+<li id="menu-item-62" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"Terms &amp; Conditions","link_module":"header","link_pos":"main navigation"}' href="https://www.tasteofhome.com/help/terms-of-use/">Terms &#038; Conditions</a></li>
+<li id="menu-item-63" class="text-red menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"NEW \u2013 Privacy Policy","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy">NEW – Privacy Policy</a></li>
+<li id="menu-item-375951" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"Your CA Privacy Rights","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy/#california">Your CA Privacy Rights</a></li>
+<li id="menu-item-780037" class="menu-item menu-item-type-custom menu-item-object-custom"><a data-analytics-metrics='{"link_name":"OneMain Financial Services","link_module":"header","link_pos":"main navigation"}' href="https://www.onemainfinancial.com/partners/e7d37779">OneMain Financial Services</a></li>
+<li id="menu-item-375953" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" data-analytics-metrics='{"link_name":"About Ads","link_module":"header","link_pos":"main navigation"}' href="https://www.trustedmediabrands.com/privacy-policy/#advertising">About Ads</a></li>
+</ul>		<div class="footer-copyright">&copy; 2018 RDA Enthusiast Brands, LLC</div>
+	</div>
+</div>
+<div class="footer-right footer-desktop">
+	
+
+<div class="newsletter-signup-content-widget -footer">
+
+	
+	<div class="newsletter-signup-content-widget__body">
+
+		
+		<h3 class="newsletter-signup-content-widget__title">Sign-up for recipes to your inbox</h3>
+
+		<div class="newsletter-signup-content-widget__byline">
+			Recipes from real home cooks, tested in our kitchens and delivered right to your inbox!		</div>
+
+		<div class="newsletter-signup-content-widget__form">
+						<form action="https://www.tasteofhome.com/newslettersignuppage/index?OptID=82&OrgSource=NewsletterAD" method="post"   data-analytics-metrics='{"link_name":"Email Sign-up","link_module":"newsletter signup","link_pos":"footer"}' >
+			<input class="toh-footer-nl" type="text" name="EmailAddress" placeholder="Email Address">
+			<button type="submit" class="toh-sign-up-btn">Sign Up</button>
+			</form>
+		</div>
+	</div>
+
+		<div class="newsletter-signup-content-widget__footer">
+
+		<div class="newsletter-signup-content-widget__tagline">Taste of Home is America's #1 cooking magazine.</div>
+
+		<div class="newsletter-signup-content-widget__subscribe-link">
+			<a href="https://order.tasteofhome.com/servlet/OrdersGateway?cds_mag_code=TOH&cds_page_id=217957&cds_response_key=IVKADU101" data-analytics-metrics='{"link_name":"Subscribe link","link_module":"footer","link_pos":"magazine subscription"}'>
+				<img src="https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/images/subscribe-to-the-magazine.png" >
+			</a>
+
+		</div>
+	</div>
+	
+</div>
+
+</div>
+</div></footer></div><script type="text/javascript" src="https://tags.crwdcntrl.net/c/10234/cc.js?ns=_cc10234" id="LOTCC_10234"></script>
+<script type="text/javascript" language="javascript">_cc10234.bcp();</script>
+
+<!-- START Parse.ly Include: Standard -->
+<div id="parsely-root" style="display: none">
+<span id="parsely-cfg" data-parsely-site="tasteofhome.com"></span>
+</div>
+<script type="text/javascript">
+(function(s, p, d) {
+var h=d.location.protocol, i=p+"-"+s,
+e=d.getElementById(i), r=d.getElementById(p+"-root"),
+u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+:"static."+p+".com";
+if (e) return;
+e = d.createElement(s); e.id = i; e.async = true;
+e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+})("script", "parsely", document);
+</script>
+<!-- END Parse.ly Include: Standard -->
+<noscript>
+<p>
+<img src="https://sb.scorecardresearch.com/p?c1=2&c2=6034767&cv=2.0&cj=1" height="1" width="1" alt="*">
+</p>
+</noscript>
+<script>
+window.ia = window.ia || function () {(window.ia.q = window.ia.q || []).push(arguments);};ia('create', '22aad833-3280-40ae-82cb-6b32578af0fa');ia('track', 'PAGE_VIEW');
+</script>
+<script async src="https://pymx5.com/scripts/load_tags.js"></script>
+<noscript><img height="1" width="1" style="display:none" src='https://pymx5.com/images/noscript.jpg'/></noscript>
+<script async type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/rd-lotame/js/lotame-tags.js?ver=1.6'></script>
+<script async type='text/javascript' src='https://www.tasteofhome.com/wp-content/mu-plugins/cookie-controller/js/md5.js?ver=1.2'></script>
+<script async type='text/javascript' src='https://www.tasteofhome.com/wp-content/mu-plugins/cookie-controller/js/sha1.js?ver=1.2'></script>
+<script async type='text/javascript' src='https://www.tasteofhome.com/wp-content/mu-plugins/cookie-controller/js/sha256.js?ver=1.2'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/rd-adobe-dtm/js/adobe_dtm.js?ver=1.3.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rd_bx = {"script_id":"934"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/rd-bx/js/smart-tag.js?ver=1.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rd_taboola = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/rd-taboola/js/rd-taboola-gallery.js?ver=0.2.1'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-comscore-mmx/js/comscore-mmx.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tohv2_owl_item_count = {"item_count":"3"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/tmbi-embed-listicle/js/tmbi-listicle.js?ver=0.1.7'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/plugins/toh-nav-menu/js/helper.js?ver=1.0.4'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/genesis/lib/js/skip-links.min.js?ver=2.6.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var genesisSampleL10n = {"mainMenu":"Menu","subMenu":"Menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/responsive-menu.js?ver=3.7.34'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/enquire.js?ver=3.7.34'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-content/themes/tmbi-theme-v3/js/script.min.js?ver=3.7.34'></script>
+<script type='text/javascript' src='https://www.tasteofhome.com/wp-includes/js/wp-embed.min.js?ver=4.9.7'></script>
+
+<script type="text/javascript">
+if(typeof _satellite !== "undefined"){
+  _satellite.pageBottom()
+}
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bab150296b","applicationID":"45457257","transactionName":"M1BUY0YAC0ZWUxVaXQoad1RACApbGARRBw==","queueTime":0,"applicationTime":482,"atts":"HxdXFQ4aGEg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>

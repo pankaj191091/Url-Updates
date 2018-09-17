@@ -1,0 +1,1 @@
+(function($){$(window).on('scroll',function(){var tohCard=$('.entry-content').find('.listicle-page');if(typeof listicleEffect!='undefined'){listicleEffect.call(this,tohCard);}});})(jQuery);

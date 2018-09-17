@@ -1,0 +1,1 @@
+_taboola.push({photo:'auto'});_taboola.push({article:'auto'});jQuery(function($){$.each(rd_taboola,function(){_taboola.push(this);});_taboola.push({flush:true});});

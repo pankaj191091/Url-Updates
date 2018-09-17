@@ -1,0 +1,3 @@
+jQuery(document).ready(function($){window.StickyFeature=function(options){var defaults={duration:600,offset:0,target:$('.sidebar .ad-wrapper > div'),};this.options=$.extend({},defaults,options||{});this.applysticky=function(options){var options=options;if(!options){var options=this.options;}
+this.options.stickyTarget=$('.sticky-wrapper');this.options.stickyTarget.sticky({duration:this.options.duration,offset_top:this.options.offset})}
+if(this.options.target.length){this.options.target.addClass('right-rail-sticky-div');this.options.target.wrap('<div class="sticky-wrapper"></div>');this.applysticky();}}})

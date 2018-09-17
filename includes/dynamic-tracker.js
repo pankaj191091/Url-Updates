@@ -1,0 +1,1 @@
+parselyConfigure=function(url,urlref){this.beacon.trackPageView({url:url,urlref:urlref,js:1});};if(typeof(PARSELY)!="undefined"){PARSELY={onload:function(){jQuery("a.js--next, a.js--prev").on("click",function(){var url=this.url,urlref=location.href;parselyConfigure.call(PARSELY,url,urlref);return true;});}};}
